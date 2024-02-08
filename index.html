@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body>
+    <main>
+      <section class="date-inputs">
+        <div class="date-inputs__wrapper">
+          <span class="letter-spacing date-inputs__name">DAY</span>
+          <input
+            class="date-inputs__input"
+            type="number"
+            inputmode="numeric"
+            maxlength="2"
+            max="31"
+            placeholder="DD"
+          />
+          <span class="italic error">
+            Must be a valid date
+          </span>
+        </div>
+
+        <div class="date-inputs__wrapper">
+          <span class="letter-spacing date-inputs__name">MONTH</span>
+
+          <input
+            class="date-inputs__input"
+            type="number"
+            maxlength="2"
+            max="12"
+            placeholder="MM"
+            inputmode="numeric"
+          />
+          <!-- <span hidden class="error"> Must be a valid date </span> -->
+        </div>
+
+        <div class="date-inputs__wrapper">
+          <span class="letter-spacing date-inputs__name">YEAR</span>
+
+          <input
+            class="date-inputs__input"
+            type="number"
+            maxlength="4"
+            max="2100"
+            placeholder="YYYY"
+            inputmode="numeric"
+          />
+          <!-- <span hidden class="error"> Error </span> -->
+        </div>
+      </section>
+
+      <button type="button" class="calcBtn">
+        <img
+          src="./assets/images/icon-arrow.svg"
+          alt="calculator button arrow"
+        />
+      </button>
+
+      <section class="date-outputs">
+        <div class="wrapper">
+          <span class="date-outputs__output purple italic fw800">--</span>
+          <span class="italic fw800">years</span>
+        </div>
+        <div class="wrapper">
+          <span class="date-outputs__output purple italic fw800">--</span>
+          <span class="italic fw800">months</span>
+        </div>
+        <div class="wrapper">
+          <span class="date-outputs__output purple italic fw800">--</span>
+          <span class="italic fw800">days</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

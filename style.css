@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+
+/* || CSS RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+/*|| General styles*/
+:root{
+    /* Fonts */
+    --POPPINS: 'Poppins', sans-serif;
+    /* Colors */
+    --PURPLE: hsl(259, 100%, 65%);
+    --LIGHT-RED: hsl(0, 100%, 67%);
+    --White: hsl(0, 0%, 100%);
+    --OFF-WHITE: hsl(0, 0%, 94%);
+    --LIGHT-GREY: hsl(0, 0%, 86%);
+    --SMOKEY-GREY: hsl(0, 1%, 44%);
+    --OFF-BLACK: hsl(0, 0%, 8%);
+}
+
+body {
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  background-color: var(--LIGHT-GREY);
+  font-family: var(--POPPINS);
+}
+
+main{
+    background-color: var(--White);
+    border-radius: 1rem 1rem 5rem 1rem;
+    width: clamp(350px,90%,800px);
+}
+
+.letter-spacing{
+    letter-spacing: 2px;
+}
+
+.opacity70{
+    opacity: 0.7;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.fw800{
+    font-weight: 800;
+}
+
+.purple{
+    color: var(--PURPLE);
+}
+
+.error-color{
+    color: var(--LIGHT-RED)
+}
+
+/* ||Blocks */
+
+.date-inputs{
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 2rem 1rem 0rem 1rem;
+    gap: 1rem;
+}
+
+.date-inputs__wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    height: 111px;
+}
+
+.date-inputs__input{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 6ch;
+    font-size: 24px;
+    padding: 12px;
+}
+
+.date-inputs__name{
+    color: var(--SMOKEY-GREY);
+}
+
+.date-outputs{
+    margin: 3rem 1rem 2rem 1rem;
+    font-size: 3rem;
+}
+
+.output{
+    font-style: italic;
+}
+
+.calcBtn{
+    border-radius: 50%;
+    background-color: var(--PURPLE);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 4rem;
+    height: 4rem;
+}
+
+.calcBtn img{
+    max-width: 1.5rem;
+    aspect-ratio: 1/1;
+    transform: translateY(10%);
+}
+
+
+
+
+
+
