@@ -38,7 +38,7 @@ body {
 
 main{
     background-color: var(--White);
-    border-radius: 1rem 1rem 5rem 1rem;
+    border-radius: 1rem 1rem clamp(5rem, 20vw, 15rem) 1rem;
     width: clamp(350px,90%,800px);
 }
 
@@ -62,33 +62,31 @@ main{
     color: var(--PURPLE);
 }
 
-.error-color{
-    color: var(--LIGHT-RED)
-}
-
 /* ||Blocks */
 
 .date-inputs{
     position: relative;
     display: flex;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 2rem 1rem 0rem 1rem;
-    gap: 1rem;
+    margin: clamp(2rem, 4vw, 3rem) clamp(1rem, 8%, 4rem) 0rem clamp(1rem, 6%, 3rem);
+    padding-bottom: 0.5rem;
+    gap: clamp(1rem, 3vw, 2rem);
 }
 
 .date-inputs__wrapper{
     display: flex;
     flex-direction: column;
-    margin-bottom: 3rem;
-    height: 111px;
+    margin-bottom: clamp(1.5rem, calc(85.5px - 10vw), 3rem);
+    height: 100px;
+    /* width: 100px; */
 }
 
 .date-inputs__input{
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    width: 6ch;
-    font-size: 24px;
-    padding: 12px;
+    width: clamp(90px, 20vw, 10ch);
+    font-size: clamp(20px,calc(10px + 2vw), 25px);
+    padding: clamp(12px, 1.5vw, 1rem );
 }
 
 .date-inputs__name{
@@ -96,22 +94,24 @@ main{
 }
 
 .date-outputs{
-    margin: 3rem 1rem 2rem 1rem;
-    font-size: 3rem;
-}
-
-.output{
-    font-style: italic;
+    margin: 3rem 1rem clamp(2rem, 6%, 3rem) clamp(1rem, 6%, 3rem);
+    font-size: clamp(3.5rem, 3rem + 2vw, 5rem);
 }
 
 .calcBtn{
     border-radius: 50%;
     background-color: var(--PURPLE);
     position: absolute;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    left: 50%; 
+    transform: translate(-50%,50%);
+    bottom: 0;
     width: 4rem;
     height: 4rem;
+    cursor: pointer;
+}
+
+.calcBtn:hover{
+    background-color: var(--OFF-BLACK);
 }
 
 .calcBtn img{
@@ -120,8 +120,28 @@ main{
     transform: translateY(10%);
 }
 
+.error{
+    padding: 0.5rem 0;
+    font-size: clamp(10px, 2vw, 14px);
+    text-wrap: wrap;
+}
 
+.error-color .date-inputs__name, 
+.error-color .error{
+    color: var(--LIGHT-RED)
+}
 
+.error-color .date-inputs__input{
+    border: 1px solid rgba(255, 0, 0);
+}
 
+@media screen and (min-width:600px) {
+    .calcBtn{
+        right: 0;
+        left: auto;
+        transform: translateY(50%);
+        
+    }
+}
 
 

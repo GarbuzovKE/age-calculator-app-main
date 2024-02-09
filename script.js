@@ -1,48 +1,136 @@
-let maxLength;
 let maxValue;
 let minValue;
-const date = new Date();
-let curDay = date.getDate();
-let curMonth = date.getMonth();
-let curYear = date.getFullYear();
+const daysInMonth = {
+  1: 31,
+  2: 28,
+  3: 31,
+  4: 30,
+  5: 31,
+  6: 30,
+  7: 31,
+  8: 31,
+  9: 30,
+  10: 31,
+  11: 30,
+  12: 31,
+};
+const curDate = new Date();
+let curYear = curDate.getFullYear();
+let curMon = curDate.getMonth() + 1;
+let curDay = curDate.getDate();
+
 
 inputs = document.getElementsByClassName("date-inputs__input");
-for (let i = 0; i < 3; i++) {
-  inputs[i].addEventListener("change", (event) => {
+outputs = document.getElementsByClassName("date-outputs__output");
+
+function addErrorColor(elem) {
+  if (!elem.parentElement.classList.contains("error-color")) {
+    elem.parentElement.classList.add("error-color");
+  }
+}
+
+function addErrorText(elem) {
+  if (elem.nextElementSibling.hasAttribute("hidden")) {
+    elem.nextElementSibling.removeAttribute("hidden");
+  }
+}
+
+function clearOutput() {
+  for (let i = 0; i < 3; i++) {
+    outputs[i].textContent = `--`;
+  }
+}
+
+function validation(inputs) {
+  for (let i = 0; i < 3; i++) {
     switch (i) {
       case 0:
-        maxLength = 2;
         maxValue = 31;
-        minValue = 1;
+        minValue = 0;
         break;
       case 1:
-        maxLength = 2;
         maxValue = 12;
-        minValue = 1;
+        minValue = 0;
         break;
       case 2:
-        maxLength = 4;
-        maxValue = curYear - 1;
+        maxValue = curYear;
         minValue = 1800;
         break;
     }
-    let value = event.target.value;
-    if (value.length > maxLength) {
-      event.target.value = value.slice(0, maxLength);
+
+    if (new Date(inputs[2].value, inputs[1].value-1, inputs[0].value) - curDate>=0){
+      console.log(new Date(inputs[2].value, inputs[1].value-1, inputs[0].value));
+      addErrorColor(inputs[i]);
+      addErrorText(inputs[i]);
+      inputs[i].nextElementSibling.textContent = "Must be a valid date";
+      continue
     }
-    if (value > maxValue) {
-      event.target.value = maxValue;
+
+    if (!inputs[i].value) {
+      addErrorColor(inputs[i]);
+      addErrorText(inputs[i]);
+      inputs[i].nextElementSibling.textContent = "This field is required";
+    } else {
+      if (
+        !/^\d+$/.test(inputs[i].value) ||
+        Number(inputs[i].value) < minValue ||
+        Number(inputs[i].value) > maxValue ||
+        (i == 0 && Number(inputs[i].value) > daysInMonth[Number(inputs[i+1].value)])
+      ) {
+        addErrorColor(inputs[i]);
+        addErrorText(inputs[i]);
+        inputs[i].nextElementSibling.textContent = "Must be a valid date";
+      } else {
+        inputs[i].nextElementSibling.setAttribute("hidden", "");
+        inputs[i].parentElement.classList.remove("error-color");
+      }
     }
-    if (value < minValue) {
-      event.target.value = minValue;
+  }
+
+  for (let i = 0; i < 3; i++) {
+    if (
+      inputs[i].parentElement.classList.contains("error-color") ||
+      !inputs[i].nextElementSibling.hasAttribute("hidden")
+    ) {
+      clearOutput();
+      return 0;
     }
-  });
+  }
+
+  return 1;
 }
 
-/* function calcAge() {
 
+function calcAgeAfterVal(inputs) {
+  curYear = curDate.getFullYear();
+  curMon = curDate.getMonth() + 1;
+  curDay = curDate.getDate();
+  if (curDay - Number(inputs[0].value) < 0) {
+    if (curMon-1) {
+      curDay += daysInMonth[Number(curMon)-1];
+      curMon--;
+      ansDays = curDay - Number(inputs[0].value);
+    } else {
+      curYear--;
+      curMon += 12;
+    }
+  } 
+  ansDays = curDay - Number(inputs[0].value);
+  
+  if (curMon - Number(inputs[1].value)< 0){
+    curYear--;
+    curMon += 12;
+  }
+  ansMon = curMon - Number(inputs[1].value);
+  ansYear = curYear - Number(inputs[2].value);
+  outputs[0].textContent = `${ansYear}`;
+  outputs[1].textContent = `${ansMon}`;
+  outputs[2].textContent = `${ansDays}`;
 }
 
-button = document.getElementsByClassName("calcBtn");
-button.addEventListener("click", calcAge());
- */
+function calcAge() {
+  if (validation(inputs)) calcAgeAfterVal(inputs);
+}
+
+button = document.getElementsByClassName("calcBtn")[0];
+button.addEventListener("click", calcAge, false);
