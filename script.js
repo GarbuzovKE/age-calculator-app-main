@@ -65,7 +65,7 @@ function validation(inputs) {
         break;
       case 2:
         maxValue = curYear;
-        minValue = 1800;
+        minValue = 1;
         break;
     }
 
