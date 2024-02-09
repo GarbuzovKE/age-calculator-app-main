@@ -18,6 +18,7 @@ const curDate = new Date();
 let curYear = curDate.getFullYear();
 let curMon = curDate.getMonth() + 1;
 let curDay = curDate.getDate();
+const animSpeed = 50;
 
 
 inputs = document.getElementsByClassName("date-inputs__input");
@@ -38,6 +39,16 @@ function addErrorText(elem) {
 function clearOutput() {
   for (let i = 0; i < 3; i++) {
     outputs[i].textContent = `--`;
+  }
+}
+
+function animNum(i, end, elem){
+  console.log(i, end, elem);
+  if (i <= end){
+    elem.textContent = `${i}`;
+    setTimeout(function(){
+      animNum(i+1, end, elem)
+    }, animSpeed);
   }
 }
 
@@ -123,9 +134,14 @@ function calcAgeAfterVal(inputs) {
   }
   ansMon = curMon - Number(inputs[1].value);
   ansYear = curYear - Number(inputs[2].value);
-  outputs[0].textContent = `${ansYear}`;
-  outputs[1].textContent = `${ansMon}`;
-  outputs[2].textContent = `${ansDays}`;
+
+animNum(0, ansYear, outputs[0]);
+animNum(0, ansMon, outputs[1]);
+animNum(0, ansDays, outputs[2]);
+
+/*   outputs[0].textContent = `${ansYear}`; */
+  /* outputs[1].textContent = `${ansMon}`; */
+  /* outputs[2].textContent = `${ansDays}`; */
 }
 
 function calcAge() {

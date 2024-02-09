@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
 
 /* || CSS RESET */
 
@@ -15,17 +15,17 @@ button {
 }
 
 /*|| General styles*/
-:root{
-    /* Fonts */
-    --POPPINS: 'Poppins', sans-serif;
-    /* Colors */
-    --PURPLE: hsl(259, 100%, 65%);
-    --LIGHT-RED: hsl(0, 100%, 67%);
-    --White: hsl(0, 0%, 100%);
-    --OFF-WHITE: hsl(0, 0%, 94%);
-    --LIGHT-GREY: hsl(0, 0%, 86%);
-    --SMOKEY-GREY: hsl(0, 1%, 44%);
-    --OFF-BLACK: hsl(0, 0%, 8%);
+:root {
+  /* Fonts */
+  --POPPINS: "Poppins", sans-serif;
+  /* Colors */
+  --PURPLE: hsl(259, 100%, 65%);
+  --LIGHT-RED: hsl(0, 100%, 67%);
+  --White: hsl(0, 0%, 100%);
+  --OFF-WHITE: hsl(0, 0%, 94%);
+  --LIGHT-GREY: hsl(0, 0%, 86%);
+  --SMOKEY-GREY: hsl(0, 1%, 44%);
+  --OFF-BLACK: hsl(0, 0%, 8%);
 }
 
 body {
@@ -36,112 +36,111 @@ body {
   font-family: var(--POPPINS);
 }
 
-main{
-    background-color: var(--White);
-    border-radius: 1rem 1rem clamp(5rem, 20vw, 15rem) 1rem;
-    width: clamp(350px,90%,800px);
+main {
+  background-color: var(--White);
+  border-radius: 1rem 1rem clamp(5rem, 20vw, 15rem) 1rem;
+  width: clamp(350px, 90%, 800px);
 }
 
-.letter-spacing{
-    letter-spacing: 2px;
+.letter-spacing {
+  letter-spacing: 2px;
 }
 
-.opacity70{
-    opacity: 0.7;
+.opacity70 {
+  opacity: 0.7;
 }
 
-.italic{
-    font-style: italic;
+.italic {
+  font-style: italic;
 }
 
-.fw800{
-    font-weight: 800;
+.fw800 {
+  font-weight: 800;
 }
 
-.purple{
-    color: var(--PURPLE);
+.purple {
+  color: var(--PURPLE);
 }
 
 /* ||Blocks */
 
-.date-inputs{
-    position: relative;
-    display: flex;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin: clamp(2rem, 4vw, 3rem) clamp(1rem, 8%, 4rem) 0rem clamp(1rem, 6%, 3rem);
-    padding-bottom: 0.5rem;
-    gap: clamp(1rem, 3vw, 2rem);
+.date-inputs {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: clamp(2rem, 4vw, 3rem) clamp(1rem, 8%, 4rem) 0rem
+    clamp(1rem, 6%, 3rem);
+  padding-bottom: 0.5rem;
+  gap: clamp(1rem, 3vw, 2rem);
 }
 
-.date-inputs__wrapper{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: clamp(1.5rem, calc(85.5px - 10vw), 3rem);
-    height: 100px;
-    /* width: 100px; */
+.date-inputs__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: clamp(1.5rem, calc(85.5px - 10vw), 3rem);
+  height: 100px;
+  /* width: 100px; */
 }
 
-.date-inputs__input{
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: clamp(90px, 20vw, 10ch);
-    font-size: clamp(20px,calc(10px + 2vw), 25px);
-    padding: clamp(12px, 1.5vw, 1rem );
+.date-inputs__input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: clamp(90px, 20vw, 10ch);
+  font-size: clamp(20px, calc(10px + 2vw), 25px);
+  padding: clamp(12px, 1.5vw, 1rem);
 }
 
-.date-inputs__name{
-    color: var(--SMOKEY-GREY);
+.date-inputs__name {
+  color: var(--SMOKEY-GREY);
 }
 
-.date-outputs{
-    margin: 3rem 1rem clamp(2rem, 6%, 3rem) clamp(1rem, 6%, 3rem);
-    font-size: clamp(3.5rem, 3rem + 2vw, 5rem);
-}
-
-.calcBtn{
-    border-radius: 50%;
-    background-color: var(--PURPLE);
-    position: absolute;
-    left: 50%; 
-    transform: translate(-50%,50%);
-    bottom: 0;
-    width: 4rem;
-    height: 4rem;
-    cursor: pointer;
-}
-
-.calcBtn:hover{
-    background-color: var(--OFF-BLACK);
-}
-
-.calcBtn img{
-    max-width: 1.5rem;
-    aspect-ratio: 1/1;
-    transform: translateY(10%);
-}
-
-.error{
-    padding: 0.5rem 0;
-    font-size: clamp(10px, 2vw, 14px);
-    text-wrap: wrap;
-}
-
-.error-color .date-inputs__name, 
-.error-color .error{
-    color: var(--LIGHT-RED)
-}
-
-.error-color .date-inputs__input{
-    border: 1px solid rgba(255, 0, 0);
-}
-
-@media screen and (min-width:600px) {
-    .calcBtn{
-        right: 0;
-        left: auto;
-        transform: translateY(50%);
-        
-    }
+.date-outputs {
+  margin: 3rem 1rem clamp(2rem, 6%, 3rem) clamp(1rem, 6%, 3rem);
+  font-size: clamp(3.5rem, 3rem + 2vw, 5rem);
 }
 
 
+.calcBtn {
+  border-radius: 50%;
+  background-color: var(--PURPLE);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  bottom: 0;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+}
+
+.calcBtn:hover {
+  background-color: var(--OFF-BLACK);
+}
+
+.calcBtn img {
+  max-width: 1.5rem;
+  aspect-ratio: 1/1;
+  transform: translateY(10%);
+}
+
+.error {
+  padding: 0.5rem 0;
+  font-size: clamp(10px, 2vw, 14px);
+  text-wrap: wrap;
+}
+
+.error-color .date-inputs__name,
+.error-color .error {
+  color: var(--LIGHT-RED);
+}
+
+.error-color .date-inputs__input {
+  border: 1px solid rgba(255, 0, 0);
+}
+
+@media screen and (min-width: 600px) {
+  .calcBtn {
+    right: 0;
+    left: auto;
+    transform: translateY(50%);
+  }
+}
