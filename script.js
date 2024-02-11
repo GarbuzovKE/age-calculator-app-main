@@ -20,7 +20,6 @@ let curMon = curDate.getMonth() + 1;
 let curDay = curDate.getDate();
 const animSpeed = 50;
 
-
 inputs = document.getElementsByClassName("date-inputs__input");
 outputs = document.getElementsByClassName("date-outputs__output");
 

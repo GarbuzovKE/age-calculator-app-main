@@ -79,7 +79,6 @@ main {
   flex-direction: column;
   margin-bottom: clamp(1.5rem, calc(85.5px - 10vw), 3rem);
   height: 100px;
-  /* width: 100px; */
 }
 
 .date-inputs__input {
